@@ -1,0 +1,146 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+// Barra superior
+.barra-topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+  background: var(--cor-fundo-card);
+  border-bottom: 1px solid var(--cor-borda);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+
+.barra-topo-esquerda {
+  flex: 0 0 auto;
+}
+
+.barra-topo-direita {
+  flex: 0 0 auto;
+}
+
+.botao-voltar {
+  padding: 0.4rem 0.9rem;
+  background: var(--cor-fundo-elevado);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda);
+  color: var(--cor-texto-primario);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transicao);
+
+  &:hover:not(:disabled) {
+    background: var(--cor-acento);
+    border-color: var(--cor-acento);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+}
+
+// Navegacao
+.navegacao-principal {
+  display: flex;
+  gap: 0.25rem;
+  background: var(--cor-fundo);
+  padding: 0.25rem;
+  border-radius: var(--raio-borda);
+}
+
+.nav-link {
+  padding: 0.4rem 1rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  color: var(--cor-texto-secundario);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all var(--transicao);
+
+  &:hover {
+    color: var(--cor-texto-primario);
+    background: var(--cor-fundo-elevado);
+  }
+}
+
+// Indicador de criptografia
+.indicador-criptografia {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(108, 92, 231, 0.15);
+  border: 1px solid rgba(108, 92, 231, 0.3);
+  border-radius: var(--raio-borda);
+  color: var(--cor-acento);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+// Conteudo
+.conteudo-principal {
+  flex: 1;
+  padding: 1rem;
+}
+
+// Barra de debug (footer)
+.barra-debug {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.6rem 1.5rem;
+  background: var(--cor-fundo-card);
+  border-top: 1px solid var(--cor-borda);
+  overflow-x: auto;
+}
+
+.debug-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.debug-rotulo {
+  font-size: 0.7rem;
+  color: var(--cor-texto-terciario);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.debug-valor {
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  padding: 0.2rem 0.5rem;
+  background: var(--cor-fundo);
+  border-radius: 4px;
+  max-width: 300px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  &.rota-real {
+    color: var(--cor-sucesso);
+  }
+
+  &.url-cripto {
+    color: var(--cor-acento);
+  }
+}
+
+.debug-separador {
+  width: 1px;
+  height: 20px;
+  background: var(--cor-borda);
+  flex-shrink: 0;
+}

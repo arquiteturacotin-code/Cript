@@ -1,0 +1,47 @@
+<div class="app-container">
+  <header class="barra-topo">
+    <div class="barra-topo-esquerda">
+      <button
+        class="botao-voltar"
+        [disabled]="!pilhaNavegacao.podeVoltar"
+        (click)="voltar()"
+        title="Voltar para rota anterior"
+      >
+        ← Voltar
+      </button>
+    </div>
+
+    <nav class="navegacao-principal">
+      <button class="nav-link" (click)="navegarPara('/inicio')">Inicio</button>
+      <button class="nav-link" (click)="navegarPara('/painel')">Painel</button>
+      <button class="nav-link" (click)="navegarPara('/configuracoes')">Configuracoes</button>
+    </nav>
+
+    <div class="barra-topo-direita">
+      <span class="indicador-criptografia" title="Motor de criptografia ativo">
+        🔒 Criptografado
+      </span>
+    </div>
+  </header>
+
+  <main class="conteudo-principal">
+    <router-outlet />
+  </main>
+
+  <footer class="barra-debug">
+    <div class="debug-item">
+      <span class="debug-rotulo">Rota real:</span>
+      <code class="debug-valor rota-real">{{ rotaReal }}</code>
+    </div>
+    <div class="debug-separador"></div>
+    <div class="debug-item">
+      <span class="debug-rotulo">URL criptografada:</span>
+      <code class="debug-valor url-cripto">/-/{{ urlCriptografada }}</code>
+    </div>
+    <div class="debug-separador"></div>
+    <div class="debug-item">
+      <span class="debug-rotulo">Historico:</span>
+      <code class="debug-valor">{{ pilhaNavegacao.historico.length }} rotas</code>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,228 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cor-fundo: #0a0a0f;
+  --cor-fundo-card: #12121a;
+  --cor-fundo-elevado: #1a1a28;
+  --cor-borda: #2a2a3d;
+  --cor-texto-primario: #e4e4ef;
+  --cor-texto-secundario: #8888a0;
+  --cor-texto-terciario: #5a5a72;
+  --cor-acento: #6c5ce7;
+  --cor-acento-hover: #7c6ef7;
+  --cor-sucesso: #00d68f;
+  --cor-perigo: #ff6b6b;
+  --cor-aviso: #ffd93d;
+  --raio-borda: 8px;
+  --raio-borda-grande: 12px;
+  --sombra: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --transicao: 200ms ease;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto-primario);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+// Paginas
+.pagina {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  animation: fadeIn 300ms ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pagina-cabecalho {
+  margin-bottom: 2rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.25rem;
+  }
+
+  p {
+    color: var(--cor-texto-secundario);
+    font-size: 0.95rem;
+  }
+}
+
+// Cards de navegacao
+.card-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.card-navegacao {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-grande);
+  text-decoration: none;
+  color: var(--cor-texto-primario);
+  transition: all var(--transicao);
+  cursor: pointer;
+
+  &:hover {
+    background: var(--cor-fundo-elevado);
+    border-color: var(--cor-acento);
+    transform: translateX(4px);
+  }
+
+  .card-icone {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--cor-fundo-elevado);
+    border-radius: var(--raio-borda);
+    flex-shrink: 0;
+  }
+
+  .card-info {
+    flex: 1;
+
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: var(--cor-texto-secundario);
+    }
+  }
+
+  .card-seta {
+    font-size: 1.25rem;
+    color: var(--cor-texto-terciario);
+    transition: all var(--transicao);
+  }
+
+  &:hover .card-seta {
+    color: var(--cor-acento);
+    transform: translateX(4px);
+  }
+}
+
+// Metricas (Painel)
+.metricas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metrica-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-grande);
+
+  .metrica-valor {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cor-acento);
+    letter-spacing: -0.02em;
+  }
+
+  .metrica-rotulo {
+    font-size: 0.8rem;
+    color: var(--cor-texto-secundario);
+    margin-top: 0.25rem;
+  }
+}
+
+// Configuracoes
+.configuracao-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.configuracao-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  background: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-borda-grande);
+
+  .configuracao-info {
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: var(--cor-texto-secundario);
+    }
+  }
+}
+
+.toggle {
+  width: 44px;
+  height: 24px;
+  background: var(--cor-borda);
+  border-radius: 12px;
+  position: relative;
+  cursor: pointer;
+  transition: background var(--transicao);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    background: var(--cor-texto-secundario);
+    border-radius: 50%;
+    transition: all var(--transicao);
+  }
+
+  &.ativo {
+    background: var(--cor-acento);
+
+    &::after {
+      left: 22px;
+      background: white;
+    }
+  }
+}
